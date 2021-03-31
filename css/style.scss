@@ -1,0 +1,74 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: #ebf5fc;
+}
+
+//!======包覆 所有按鈕 最外框======
+ul {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap; //*---依寬度<自動換行>，ex當寬度不夠時自動換行---
+  border-radius: 10px;
+  padding: 20px;
+  width: 240px;
+  background: #ebf5fc;
+  //*---浮雕陰影參數---
+  box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+    3px 3px 5px rgba(0, 0, 0, 0.1);
+
+  //!=====個別按鈕邊界調整=====
+  li {
+    position: relative;
+    list-style: none;
+    text-align: center;
+    margin: 15px;
+    label {
+      position: relative;
+
+      //!=====更改 checkbox外觀與位置 (與icon位置重疊)=====
+      //*---(初始)未按下---
+      input[type="checkbox"] {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+      }
+      //*---(結果)按下按鈕後---
+      input[type="checkbox"]:checked ~ .icon-box {
+        box-shadow: inset -2px -2px 5px rgba(255, 255, 255, 1),
+          inset 3px 3px 5px rgba(0, 0, 0, 0.1);
+        .fa {
+          transform: scale(0.95);
+        }
+      }
+      //!======調整 個別 icon-box邊框陰影======
+      .icon-box {
+        width: 60px;
+        height: 60px;
+        background: #ebf5fc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        //*---浮雕陰影參數---
+        box-shadow: -2px -2px 5px rgba(255, 255, 255, 1),
+          3px 3px 5px rgba(0, 0, 0, 0.1);
+        border-radius: 10px;
+
+        //!======調整 個別 icon尺寸、顏色======
+        .fa {
+          font-size: 30px;
+          color: #6a9bd8;
+        }
+      }
+    }
+  }
+}
